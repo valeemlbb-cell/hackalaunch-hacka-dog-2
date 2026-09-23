@@ -68,6 +68,14 @@ of it yourself, run `gh auth login` once, then from inside the checkout:
 gh repo create hdog-agent --public --source=. --remote=origin --push --description "A dog agent that hunts, scores and trades Solana dog-runner tokens. Devnet only. Built for the Hacka Dog hackathon."
 ```
 
+To push the current commits to the existing repository instead (one
+`gh auth login`, then):
+
+```bash
+git remote add origin https://github.com/valeemlbb-cell/hackalaunch-hacka-dog-2.git 2>/dev/null || true
+git push -u origin HEAD:main
+```
+
 Then confirm what went public:
 
 ```bash
