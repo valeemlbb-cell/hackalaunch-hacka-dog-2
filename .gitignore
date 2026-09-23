@@ -12,3 +12,6 @@ id.json
 
 .DS_Store
 *.log
+
+# internal pre-submission review notes, not part of the public packet
+REVIEW_*.md
