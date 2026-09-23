@@ -15,8 +15,8 @@
     "once": "node src/cli.js once",
     "doctor": "node src/cli.js doctor",
     "live": "node src/cli.js run --source=dexscreener",
-    "test": "node --test test/",
-    "coverage": "node --test --experimental-test-coverage test/",
+    "test": "node scripts/run_tests.mjs",
+    "coverage": "node scripts/run_tests.mjs --experimental-test-coverage",
     "fixture": "node scripts/make_fixture.mjs"
   },
   "dependencies": {

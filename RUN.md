@@ -57,9 +57,9 @@ config validation, so this cannot be pointed at real money.
 
 ## 3. Publish the repo
 
-`gh` is **not authenticated in the agent environment**, so the repository has not
-been pushed. Run `gh auth login` once, then this exact line from inside
-`D:\warung-ops\hacka\hacka-dog-2`:
+The repository is public at
+<https://github.com/valeemlbb-cell/hackalaunch-hacka-dog-2>. To publish a fork
+of it yourself, run `gh auth login` once, then from inside the checkout:
 
 ```bash
 gh repo create hdog-agent --public --source=. --remote=origin --push --description "A dog agent that hunts, scores and trades Solana dog-runner tokens. Devnet only. Built for the Hacka Dog hackathon."
@@ -78,7 +78,8 @@ no `node_modules/`. `git status --ignored --short` will show them as ignored.
 ## 4. Submit
 
 1. Repository URL from step 3.
-2. `demo.mp4` (under 3 minutes) — or `demo_small.mp4` if the platform caps upload size.
+2. `demo.mp4` (55 s) — or `demo_x.mp4` / `demo_small.mp4`, the same cut re-encoded
+   small enough for platforms that cap upload size.
 3. Description: paste from [SUBMISSION.md](SUBMISSION.md).
 4. Payout wallet: `7W31iaCmjerN1jkpEnmZevn74SZxv83yEQvLsnc4PS7Q`
 

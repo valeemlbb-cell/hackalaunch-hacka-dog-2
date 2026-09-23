@@ -132,6 +132,9 @@ src/
     devnetExecutor.js     on-chain devnet settlement
 test/                     77 tests
 fixtures/                 the recorded tape (regenerate: npm run fixture)
+scripts/
+  make_fixture.mjs        rebuilds the tape from an explicit price path
+  run_tests.mjs           collects test/**/*.test.js for the node:test runner
 ```
 
 Every module returns new objects instead of mutating; a portfolio snapshot is
