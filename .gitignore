@@ -15,3 +15,4 @@ id.json
 
 # internal pre-submission review notes, not part of the public packet
 REVIEW_*.md
+devnet-run.txt

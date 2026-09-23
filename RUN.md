@@ -36,6 +36,9 @@ RPC; these are the exact commands to execute it for real. It takes a minute,
 and the resulting explorer link is the one thing this packet cannot produce by
 itself.
 
+Everything below is also wrapped in `get_devnet_signature.sh` — run that and it
+does the four steps in one go.
+
 ```bash
 # a throwaway DEVNET keypair — valueless test SOL, never a real wallet
 solana-keygen new --no-bip39-passphrase -o devnet-agent.json
