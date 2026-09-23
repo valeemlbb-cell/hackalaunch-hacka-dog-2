@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { DEFAULTS, loadConfig, validateConfig } from "../src/config.js";
+import { ALLOWED_RPC_HOSTS, DEFAULTS, isAllowedRpcUrl, loadConfig, validateConfig } from "../src/config.js";
 
 test("defaults load with an empty environment", () => {
   const config = loadConfig({});
@@ -44,4 +44,48 @@ test("nonsense risk limits are caught before any trade", () => {
   assert.throws(() => loadConfig({}, { maxPositionPct: 5 }), /MAX_POSITION_PCT/);
   assert.throws(() => loadConfig({}, { minScore: 10, exitScore: 20 }), /MIN_SCORE/);
   assert.throws(() => loadConfig({}, { venue: "mainnet" }), /VENUE/);
+});
+
+test("a custom mainnet RPC is refused in EVERY venue, not just devnet", () => {
+  const hostile = "https://mainnet.helius-rpc.com/?api-key=x";
+  assert.throws(() => loadConfig({ HDOG_RPC_URL: hostile }), /devnet only/, "paper venue still refuses it");
+  assert.throws(
+    () =>
+      loadConfig({
+        HDOG_VENUE: "devnet",
+        HDOG_KEYPAIR_PATH: "k.json",
+        HDOG_SETTLEMENT_PUBKEY: "pk",
+        HDOG_RPC_URL: hostile,
+      }),
+    /devnet only/,
+    "devnet venue refuses it too",
+  );
+});
+
+test("the RPC allowlist rejects every host that is not a test cluster", () => {
+  for (const url of [
+    "https://mainnet.helius-rpc.com/?api-key=x",
+    "https://solana-mainnet.g.alchemy.com/v2/k",
+    "https://rpc.ankr.com/solana",
+    "https://api.mainnet-beta.solana.com",
+    "https://api.devnet.solana.com.evil.example",
+    "http://8.8.8.8:8899",
+    "ftp://api.devnet.solana.com",
+    "not-a-url",
+    "",
+  ]) {
+    assert.equal(isAllowedRpcUrl(url), false, `${url || "(empty)"} must be refused`);
+  }
+});
+
+test("the RPC allowlist accepts the test clusters and a local validator", () => {
+  for (const url of [
+    "https://api.devnet.solana.com",
+    "https://api.testnet.solana.com",
+    "http://localhost:8899",
+    "http://127.0.0.1:8899",
+  ]) {
+    assert.equal(isAllowedRpcUrl(url), true, `${url} must be accepted`);
+  }
+  assert.deepEqual(ALLOWED_RPC_HOSTS.length, 4);
 });

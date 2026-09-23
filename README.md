@@ -24,7 +24,7 @@ put into it, and **when** to get out — then executes and journals every fill.
 
 ```bash
 npm install
-npm test          # 77 tests, ~95% line coverage
+npm test          # 91 tests, 99% line coverage
 npm run doctor    # checks config + talks to real Solana devnet
 npm start         # trades the recorded tape end to end
 ```
@@ -51,12 +51,12 @@ A score alone never buys anything. Seven hard blockers must all pass:
 | blocker | why |
 |---|---|
 | `not-a-dog` | wrong universe — a cat is not a dog |
-| `thin-liquidity` | a pool you cannot exit is not a position |
-| `too-new` | no history to trade against |
-| `no-momentum` | a deep, liquid, high-volume pool can clear the score bar while going nowhere |
-| `rolling-over` | up 97% on the hour but the current candle is red — the move is over |
-| `blow-off-top` | a vertical 5m candle is the top, not the entry |
-| `wash-volume` | 150x volume on a 22k pool is wash trading, not demand |
+| `thin-liquidity` (`HDOG_MIN_LIQUIDITY_USD`) | a pool you cannot exit is not a position |
+| `too-new` (`HDOG_MIN_AGE_HOURS`) | no history to trade against |
+| `no-momentum` (`HDOG_MIN_MOMENTUM_PCT`) | a deep, liquid, high-volume pool can clear the score bar while going nowhere |
+| `rolling-over` (`HDOG_MIN_M5_PCT`) | up 97% on the hour but the current candle is red — the move is over |
+| `blow-off-top` (`HDOG_MAX_M5_PCT`) | a vertical 5m candle is the top, not the entry |
+| `wash-volume` (`HDOG_MAX_VOLUME_RATIO`) | 150x volume on a 22k pool is wash trading, not demand |
 
 **4. Risk — `src/strategy/decide.js`.**
 Max 5 concurrent positions at 20% of equity each, a hard stop at −18%, a target
@@ -77,12 +77,12 @@ This section exists so nobody has to guess.
 
 | part | status |
 |---|---|
-| Universe filter, scoring, gates, risk, position accounting | **Real.** 77 unit tests, ~95% line coverage. |
+| Universe filter, scoring, gates, risk, position accounting | **Real.** 91 unit tests, 99% line coverage. |
 | Live market data (`--source=dexscreener`) | **Real.** Public read-only API, no key, filtered to Solana dog pairs. |
 | Fill pricing, slippage, fees, PnL | **Real model, simulated fills.** No order reaches a live market. |
 | Solana devnet connectivity (`npm run doctor`) | **Real.** Hits `api.devnet.solana.com`, prints the live slot and genesis hash. |
-| On-chain devnet settlement (`HDOG_VENUE=devnet`) | **Implemented and unit-tested, but not yet executed by us** — see below. |
-| Mainnet trading | **Deliberately impossible.** `config.js` refuses a mainnet RPC. |
+| On-chain devnet settlement (`HDOG_VENUE=devnet`) | **Unit-tested end to end against a stubbed RPC; never executed live by us** — see below. |
+| Mainnet trading | **Deliberately impossible.** `config.js` allowlists the RPC host in every venue. |
 
 ### About the devnet settlement path
 
@@ -90,13 +90,21 @@ This section exists so nobody has to guess.
 transaction: a small SOL transfer to a settlement account carrying an SPL Memo
 with the fill record, returning a real signature you can open in an explorer.
 
-**We could not execute it ourselves.** The public devnet faucet answered every
-airdrop request with `429 — you've either reached your airdrop limit today or
-the airdrop faucet has run dry`, and the alternative faucet needs an interactive
-login that an automated agent should not be performing. The code path is
-written, unit-tested and wired into the CLI, but no signature has been produced
-by us. [RUN.md](RUN.md) has the exact three commands to fund a devnet key and
-run it yourself.
+The whole transaction is asserted in `test/devnetExecutor.test.js` against a
+stubbed `@solana/web3.js`: one `SystemProgram.transfer` of exactly
+`HDOG_SETTLEMENT_LAMPORTS` to the settlement account, one memo instruction to
+the canonical memo program carrying the fill record, the payer as the only
+signer, and the confirmed signature attached to the returned fill. A send
+failure propagates instead of reporting a phantom fill.
+
+**We could not execute it live ourselves.** Every airdrop attempt on
+2026-09-24 — devnet *and* testnet, on fresh `Keypair.generate()` keys —
+returned `429 — you've either reached your airdrop limit today or the airdrop
+faucet has run dry`; the faucet limit is per IP per day. The alternative faucet
+needs an interactive login that an automated agent should not be performing, so
+**no signature has been produced by us.** The path is written, unit-tested and
+wired into the CLI. [RUN.md](RUN.md) step 2 has the exact commands to fund a
+throwaway devnet key and produce one yourself — it takes about a minute.
 
 Be clear about what this path *is*, even when funded: devnet has no liquidity
 for mainnet dog runners, so the **price** comes from live market data while the
@@ -108,8 +116,12 @@ record of what the agent decided — not a claim that a devnet swap filled.
 Because an agent that can move real money should not be handed one on day one.
 Every hard rule the team works under is enforced in code, not in prose:
 no wallet is ever connected or imported, no key is read except from a path the
-operator sets, a mainnet RPC is rejected by config validation, there is no admin
-or backdoor path, and `.gitignore` keeps keypairs out of the repository.
+operator sets, the RPC host is checked against a four-entry allowlist
+(`api.devnet.solana.com`, `api.testnet.solana.com`, `localhost`, `127.0.0.1`)
+on **every** config load regardless of venue — an allowlist rather than a
+"does the URL say mainnet" pattern, because that pattern misses every custom
+mainnet provider — there is no admin or backdoor path, and `.gitignore` keeps
+keypairs out of the repository.
 
 ## Layout
 
@@ -130,7 +142,7 @@ src/
   exec/
     paperExecutor.js      slippage + fee pricing
     devnetExecutor.js     on-chain devnet settlement
-test/                     77 tests
+test/                     91 tests
 fixtures/                 the recorded tape (regenerate: npm run fixture)
 scripts/
   make_fixture.mjs        rebuilds the tape from an explicit price path

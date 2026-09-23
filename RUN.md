@@ -4,8 +4,8 @@
 
 ```bash
 npm install
-npm test            # 77 tests
-npm run coverage    # ~95% line coverage
+npm test            # 91 tests
+npm run coverage    # 99% line coverage
 npm run doctor      # config summary + a live call to Solana devnet
 npm start           # 8 ticks over the recorded tape, then flatten the book
 ```
@@ -28,10 +28,13 @@ cat runs/journal.jsonl | head -3
 
 ## 2. Optional: anchor fills on Solana devnet
 
-Not required to evaluate the agent, and **we have not run this ourselves** — the
-public devnet faucet returned `429 Too Many Requests` for every airdrop attempt
-on 2026-09-24. The code path is implemented and unit-tested; these are the exact
-commands to execute it.
+Not required to evaluate the agent, and **we have not run this ourselves** —
+every airdrop attempt on 2026-09-24, devnet and testnet, on freshly generated
+keys, returned `429 Too Many Requests` (the faucet limit is per IP per day and
+resets at 00:00 UTC). The code path is unit-tested end to end against a stubbed
+RPC; these are the exact commands to execute it for real. It takes a minute,
+and the resulting explorer link is the one thing this packet cannot produce by
+itself.
 
 ```bash
 # a throwaway DEVNET keypair — valueless test SOL, never a real wallet
@@ -78,8 +81,8 @@ no `node_modules/`. `git status --ignored --short` will show them as ignored.
 ## 4. Submit
 
 1. Repository URL from step 3.
-2. `demo.mp4` (55 s) — or `demo_x.mp4` / `demo_small.mp4`, the same cut re-encoded
-   small enough for platforms that cap upload size.
+2. `demo.mp4` (55 s) — or `demo_small.mp4`, the same cut re-encoded small
+   enough for platforms that cap upload size.
 3. Description: paste from [SUBMISSION.md](SUBMISSION.md).
 4. Payout wallet: `7W31iaCmjerN1jkpEnmZevn74SZxv83yEQvLsnc4PS7Q`
 

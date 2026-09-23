@@ -2,7 +2,7 @@
 
 **Project:** hdog-agent — a dog agent that trades all the dog runners
 **Team:** Warung Ops (Henggar) · X [@issue0x](https://x.com/issue0x) · Telegram @sambobolo
-**Repository:** _(fill in after `gh repo create` — see RUN.md step 3)_
+**Repository:** <https://github.com/valeemlbb-cell/hackalaunch-hacka-dog-2>
 **Demo:** `demo.mp4` (under 3 minutes, recorded from a real run)
 **Payout wallet:** `7W31iaCmjerN1jkpEnmZevn74SZxv83yEQvLsnc4PS7Q`
 **Licence:** MIT
@@ -46,7 +46,7 @@ freed cash and slots are reusable in the same tick. Fills are priced with a
 constant-product impact model and a 30 bps fee — and a fill that would move the
 market more than 500 bps is refused outright rather than filled at a worse price.
 
-**Everything is verifiable.** 77 tests, ~95% line coverage, `npm test`. Every
+**Everything is verifiable.** 91 tests, 99% line coverage, `npm test`. Every
 tick, decision, fill and skip is appended to `runs/journal.jsonl`. The demo is a
 real run: over the shipped tape the agent takes four positions, takes profit on
 the trend at +59.4%, stops out of the pump-and-knife at −20.1%, blocks five
@@ -56,10 +56,14 @@ tokens for five different reasons, and finishes +15.5%.
 `api.devnet.solana.com` and prints the live slot and genesis hash. With
 `HDOG_VENUE=devnet` each fill is anchored on devnet as a real transaction — a
 SOL transfer carrying an SPL Memo with the fill record, returning a signature
-you can open in an explorer. An agent that can move real money should not be
-handed one on day one, so the guardrails are code, not prose: no wallet is ever
-connected or imported, a mainnet RPC is rejected by config validation, there is
-no admin path, and keypairs are gitignored.
+you can open in an explorer — the whole transaction is asserted against a
+stubbed RPC in `test/devnetExecutor.test.js`. An agent that can move real money
+should not be handed one on day one, so the guardrails are code, not prose: no
+wallet is ever connected or imported, the RPC host is checked against a
+four-entry allowlist (devnet, testnet, localhost, 127.0.0.1) on every config
+load in every venue — an allowlist, not a "does the URL say mainnet" pattern,
+which would miss every custom mainnet provider — there is no admin path, and
+keypairs are gitignored.
 
 ---
 
@@ -71,13 +75,17 @@ Stated plainly so nobody has to guess, and so the judging is on what is real:
    fees, refusal above 500 bps) is real and tested; no order reaches a live
    market. Devnet has no liquidity in mainnet dog runners, so a devnet fill is
    an auditable on-chain *record* of the agent's decision, not a real swap.
-2. **The devnet settlement path has not been executed by us.** It is implemented
-   and unit-tested, but the public devnet faucet answered every airdrop request
-   on 2026-09-24 with `429 — you've either reached your airdrop limit today or
-   the airdrop faucet has run dry`, and the alternative faucet requires an
-   interactive login an automated agent should not perform. No signature has
-   been produced by us. RUN.md step 2 has the three commands to fund a key and
-   run it. Devnet RPC connectivity itself *is* demonstrated in the video.
+2. **The devnet settlement path has never been executed live by us.** It is
+   unit-tested end to end against a stubbed `@solana/web3.js` — transfer
+   amount and destination, memo program and payload, single signer, signature
+   on the returned fill, failure propagation — but no real transaction exists.
+   Every airdrop attempt on 2026-09-24, on devnet *and* testnet, on fresh keys,
+   returned `429 — you've either reached your airdrop limit today or the
+   airdrop faucet has run dry` (the limit is per IP per day), and the
+   alternative faucet requires an interactive login an automated agent should
+   not perform. **There is no devnet signature in this submission.** RUN.md
+   step 2 has the commands to produce one in about a minute. Devnet RPC
+   connectivity itself *is* real and is demonstrated in the video.
 3. **The shipped tape is synthetic, not market history.** Nine tokens over eight
    5-minute candles, every price change computed from an explicit price path in
    `scripts/make_fixture.mjs`. It is a fixed scenario chosen to exercise every
@@ -91,8 +99,8 @@ Stated plainly so nobody has to guess, and so the judging is on what is real:
 
 | requirement | status |
 |---|---|
-| Public GitHub repository | ready to push — `gh repo create` line in RUN.md |
-| Demo video ≤ 3 minutes | `demo.mp4`, recorded from a real run (`demo_small.mp4` if size-capped) |
+| Public GitHub repository | live — <https://github.com/valeemlbb-cell/hackalaunch-hacka-dog-2> |
+| Demo video ≤ 3 minutes | `demo.mp4` (55 s, real terminal capture); `demo_small.mp4` is the same cut re-encoded for upload-size caps |
 | Description | this file |
 | Working project meeting the rule | `npm install && npm start` on a fresh clone |
 | MIT licence | `LICENSE` |

@@ -6,7 +6,9 @@
  * Be precise about what this is: devnet has no real liquidity for mainnet dog
  * runners, so the *price* comes from live mainnet market data while the
  * *settlement* is a genuine on-chain devnet transaction you can open in an
- * explorer. Nothing here can touch mainnet — config.js refuses a mainnet RPC.
+ * explorer. Nothing here can touch mainnet: config.js allowlists the RPC host
+ * (devnet, testnet or a local validator) in every venue, so any other endpoint
+ * — including a custom mainnet provider — fails validation before startup.
  *
  * @module exec/devnetExecutor
  */
@@ -20,16 +22,33 @@ export const MEMO_PROGRAM_ID = "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr";
 /** Memo payloads above this are truncated to keep the transaction small. */
 const MAX_MEMO_BYTES = 480;
 
-/** Lazily loaded so the rest of the agent runs without the Solana dependency. */
-async function web3() {
-  return import("@solana/web3.js");
+/**
+ * Lazily loaded so the rest of the agent runs without the Solana dependency.
+ * `deps` exists purely so tests can inject a stubbed module and a stubbed
+ * connection — there is no runtime switch, no env var and no way for an
+ * operator to swap the real chain out from under the agent.
+ *
+ * @typedef {{ web3?: object, connection?: object }} Deps
+ * @param {Deps} [deps]
+ */
+async function web3(deps) {
+  return deps?.web3 ?? import("@solana/web3.js");
+}
+
+/**
+ * @param {object} lib
+ * @param {{ rpcUrl: string }} config
+ * @param {Deps} [deps]
+ */
+function openConnection(lib, config, deps) {
+  return deps?.connection ?? new lib.Connection(config.rpcUrl, "confirmed");
 }
 
 /**
  * Load a Solana CLI style keypair file (a JSON array of 64 byte values).
  * @param {string} path
  */
-export async function loadKeypair(path) {
+export async function loadKeypair(path, deps) {
   const raw = await readFile(path, "utf8");
   let bytes;
   try {
@@ -40,7 +59,7 @@ export async function loadKeypair(path) {
   if (bytes.length !== 64) {
     throw new Error(`keypair at ${path} must hold 64 bytes, found ${bytes.length}`);
   }
-  const { Keypair } = await web3();
+  const { Keypair } = await web3(deps);
   return Keypair.fromSecretKey(bytes);
 }
 
@@ -69,10 +88,12 @@ export function buildMemo(fill) {
 /**
  * Ask devnet whether it is reachable and whether the agent account is funded.
  * @param {ReturnType<import("../config.js").loadConfig>} config
+ * @param {Deps} [deps]
  */
-export async function devnetHealth(config) {
-  const { Connection, PublicKey } = await web3();
-  const connection = new Connection(config.rpcUrl, "confirmed");
+export async function devnetHealth(config, deps) {
+  const lib = await web3(deps);
+  const { PublicKey } = lib;
+  const connection = openConnection(lib, config, deps);
   const version = await connection.getVersion();
   const slot = await connection.getSlot();
   const result = {
@@ -84,7 +105,7 @@ export async function devnetHealth(config) {
     fundedForTrading: false,
   };
   if (!config.keypairPath) return result;
-  const keypair = await loadKeypair(config.keypairPath);
+  const keypair = await loadKeypair(config.keypairPath, deps);
   const lamports = await connection.getBalance(new PublicKey(keypair.publicKey));
   result.agent = { pubkey: keypair.publicKey.toBase58(), lamports, sol: lamports / 1e9 };
   result.fundedForTrading = lamports > config.settlementLamports * 4;
@@ -95,17 +116,18 @@ export async function devnetHealth(config) {
  * Build a devnet executor.
  * @param {ReturnType<import("../config.js").loadConfig>} config
  * @param {() => Date} [clock]
+ * @param {Deps} [deps]
  * @returns {Promise<import("../types.js").Executor>}
  */
-export async function createDevnetExecutor(config, clock = () => new Date()) {
+export async function createDevnetExecutor(config, clock = () => new Date(), deps) {
   if (!config.keypairPath) throw new Error("HDOG_KEYPAIR_PATH is required for venue=devnet");
   if (!config.settlementPubkey) {
     throw new Error("HDOG_SETTLEMENT_PUBKEY is required for venue=devnet");
   }
-  const { Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction, sendAndConfirmTransaction } =
-    await web3();
-  const connection = new Connection(config.rpcUrl, "confirmed");
-  const payer = await loadKeypair(config.keypairPath);
+  const lib = await web3(deps);
+  const { PublicKey, SystemProgram, Transaction, TransactionInstruction, sendAndConfirmTransaction } = lib;
+  const connection = openConnection(lib, config, deps);
+  const payer = await loadKeypair(config.keypairPath, deps);
   const settlement = new PublicKey(config.settlementPubkey);
 
   return {

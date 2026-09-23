@@ -73,6 +73,34 @@ const NUMERIC_KEYS = Object.freeze(
 
 const ENV_PREFIX = "HDOG_";
 
+/**
+ * The only RPC hosts this agent will ever talk to. An allowlist, not a
+ * blocklist: a pattern that tries to spot "mainnet" in a URL misses every
+ * custom mainnet endpoint (Helius, QuickNode, Triton, Ankr, a bare IP), so the
+ * rule is inverted — anything not on this list is refused, in every venue.
+ */
+export const ALLOWED_RPC_HOSTS = Object.freeze([
+  "api.devnet.solana.com",
+  "api.testnet.solana.com",
+  "localhost",
+  "127.0.0.1",
+]);
+
+/**
+ * @param {string} url
+ * @returns {boolean} true only for an http(s) URL on an allowlisted host.
+ */
+export function isAllowedRpcUrl(url) {
+  let parsed;
+  try {
+    parsed = new URL(String(url));
+  } catch {
+    return false;
+  }
+  if (parsed.protocol !== "https:" && parsed.protocol !== "http:") return false;
+  return ALLOWED_RPC_HOSTS.includes(parsed.hostname);
+}
+
 /** camelCase -> HDOG_SNAKE_CASE */
 function envName(key) {
   return ENV_PREFIX + key.replace(/[A-Z0-9]+/g, (m) => `_${m}`).toUpperCase();
@@ -125,16 +153,18 @@ export function validateConfig(config) {
   if (config.minLiquidityUsd >= config.maxLiquidityUsd) {
     problems.push(`${envName("minLiquidityUsd")} must be below ${envName("maxLiquidityUsd")}`);
   }
+  // Checked in EVERY venue, not just devnet: `doctor` and any future caller
+  // reads this URL whatever the venue is, so it is validated once, here.
+  if (!isAllowedRpcUrl(config.rpcUrl)) {
+    problems.push(
+      `${envName("rpcUrl")} host is not allowlisted — this agent is devnet only and accepts ` +
+        `only ${ALLOWED_RPC_HOSTS.join(", ")}`,
+    );
+  }
   if (config.venue === "devnet") {
     if (!config.keypairPath) problems.push(`${envName("keypairPath")} is required when venue=devnet`);
     if (!config.settlementPubkey) {
       problems.push(`${envName("settlementPubkey")} is required when venue=devnet`);
-    }
-    if (!/^https:\/\/|^http:\/\//.test(config.rpcUrl)) {
-      problems.push(`${envName("rpcUrl")} must be an http(s) URL`);
-    }
-    if (/mainnet|api\.mainnet-beta/i.test(config.rpcUrl)) {
-      problems.push("mainnet RPC is refused on purpose — this agent is devnet only");
     }
   }
   return problems;
