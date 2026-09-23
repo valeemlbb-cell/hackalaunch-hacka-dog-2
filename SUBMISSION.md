@@ -1,3 +1,56 @@
+<!-- generated-header v2 -->
+# SUBMISSION — hacka-dog-2
+
+Paste-ready. Five fields, in the order the HackaLaunch form asks for them.
+Refreshed 2026-09-24T05:06:10+07:00.
+
+---
+
+## TITLE  (71/80 chars)
+
+```
+hdog-agent — a dog agent that finds its own dog runners and trades them
+```
+
+## DESCRIPTION  (1478 chars)
+
+```
+hdog-agent decides for itself which Solana tokens count as dog runners, whether each one is actually running, how much to put in and when to get out — then executes and journals every fill.
+
+What it does: the brief was five words, "build a dog agent that trades all the dog runners", so the agent discovers its own universe instead of trading a hardcoded list.
+
+How it works: four stages. Universe — a dog lexicon (dog, inu, shiba, wif, bonk, corgi, hound and more) matched against name and symbol, with ambiguous words like bone, paw and wif only counting as standalone tokens, so Carbone Protocol and Swift Pay are not dogs. Signal — a runner score blending 5m/1h/6h price change weighted toward the recent, with liquidity and volume sanity checks. Risk — the interesting part: a token at score 100 is flagged blow-off-top and a token at 94 with impossible volume is flagged wash-volume, and both are refused rather than chased. Execution — position sizing, entries and exits against a recorded tape, with equity, cash, open positions and PnL printed every tick and every fill written to a journal.
+
+Real vs mocked: the lexicon, scoring, risk filters, sizing and journal are real, covered by 91 tests at 99% line coverage. `npm run doctor` makes real read-only calls to Solana devnet. Trading is paper against a recorded market tape — no wallet, no key, no API key, and `npm start` works on a fresh clone.
+
+How to run: `npm install`, `npm test`, `npm run doctor`, `npm start`.
+```
+
+## REPO URL
+
+```
+https://github.com/valeemlbb-cell/hackalaunch-hacka-dog-2
+```
+
+## VIDEO URL
+
+```
+VIDEO_URL_PENDING
+```
+
+> The main session posts `demo_x.mp4` from this folder to X and replaces the
+> line above with the public post URL. The form needs a **link**; a file is useless.
+
+## SOLANA PAYOUT ADDRESS
+
+```
+7W31iaCmjerN1jkpEnmZevn74SZxv83yEQvLsnc4PS7Q
+```
+
+---
+
+## Appendix — earlier submission notes (kept verbatim)
+
 # Submission — Hacka Dog ($HDOG)
 
 **Project:** hdog-agent — a dog agent that trades all the dog runners
