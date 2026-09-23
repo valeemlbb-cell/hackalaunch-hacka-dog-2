@@ -1,0 +1,14 @@
+node_modules/
+runs/
+.env
+.env.*
+!.env.example
+
+# keypairs never belong in a repository
+*.key
+*keypair*.json
+*devnet*.json
+id.json
+
+.DS_Store
+*.log

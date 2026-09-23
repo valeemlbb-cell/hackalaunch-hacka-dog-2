@@ -1,0 +1,1114 @@
+{
+  "description": "Recorded dog-runner tape for the Hacka Dog agent. Synthetic but internally consistent: every change field is computed from the price path in scripts/make_fixture.mjs. Regenerate with: node scripts/make_fixture.mjs",
+  "generatedBy": "scripts/make_fixture.mjs",
+  "tickMinutes": 5,
+  "notes": {
+    "HDOG": "the hackathon token: runs, then rolls over — exercises the momentum exit",
+    "WIFHAT": "clean trend — should hit the take-profit",
+    "BONKY": "slow grinder — stays open to the end of the run",
+    "SHIBX": "pumps then knifes — exercises the stop loss",
+    "PUPPY": "blocked: pool too thin to exit without eating the spread",
+    "VERTDOG": "blocked: already vertical when the tape starts — this is the top, not the entry",
+    "CATNIP": "blocked: not a dog — proves the universe filter actually filters",
+    "WASHDOG": "blocked: 150x volume on a 22k pool is wash trading, not demand",
+    "NEWPUP": "blocked: 12 minutes old, no history to trade against"
+  },
+  "ticks": [
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00042,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": 2.44,
+          "h1": 13.51,
+          "h6": 13.51,
+          "h24": 13.51
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 1.85,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": 6.32,
+          "h1": 19.35,
+          "h6": 19.35,
+          "h24": 19.35
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000091,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": 1.11,
+          "h1": 5.81,
+          "h6": 5.81,
+          "h24": 5.81
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.0135,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": 3.85,
+          "h1": 13.45,
+          "h6": 13.45,
+          "h24": 13.45
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0031,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": 19.23,
+          "h1": 47.62,
+          "h6": 47.62,
+          "h24": 47.62
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0011,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": 144.44,
+          "h1": 175,
+          "h6": 175,
+          "h24": 175
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 0.97,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 7.78,
+          "h1": 18.29,
+          "h6": 18.29,
+          "h24": 18.29
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.00015,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": 25,
+          "h1": 36.36,
+          "h6": 36.36,
+          "h24": 36.36
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00118,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": 12.38,
+          "h1": 31.11,
+          "h6": 31.11,
+          "h24": 31.11
+        }
+      }
+    ],
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00046,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": 9.52,
+          "h1": 17.95,
+          "h6": 24.32,
+          "h24": 24.32
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 2.02,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": 9.19,
+          "h1": 23.17,
+          "h6": 30.32,
+          "h24": 30.32
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000094,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": 3.3,
+          "h1": 6.82,
+          "h6": 9.3,
+          "h24": 9.3
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.0149,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": 10.37,
+          "h1": 19.2,
+          "h6": 25.21,
+          "h24": 25.21
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0037,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": 19.35,
+          "h1": 60.87,
+          "h6": 76.19,
+          "h24": 76.19
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0031,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": 181.82,
+          "h1": 638.1,
+          "h6": 675,
+          "h24": 675
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 1.08,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 11.34,
+          "h1": 25.58,
+          "h6": 31.71,
+          "h24": 31.71
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.00014,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": -6.67,
+          "h1": 7.69,
+          "h6": 27.27,
+          "h24": 27.27
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00129,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": 9.32,
+          "h1": 32.99,
+          "h6": 43.33,
+          "h24": 43.33
+        }
+      }
+    ],
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00051,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": 10.87,
+          "h1": 24.39,
+          "h6": 37.84,
+          "h24": 37.84
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 2.28,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": 12.87,
+          "h1": 31.03,
+          "h6": 47.1,
+          "h24": 47.1
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000098,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": 4.26,
+          "h1": 8.89,
+          "h6": 13.95,
+          "h24": 13.95
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.0161,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": 8.05,
+          "h1": 23.85,
+          "h6": 35.29,
+          "h24": 35.29
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0042,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": 13.51,
+          "h1": 61.54,
+          "h6": 100,
+          "h24": 100
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0072,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": 132.26,
+          "h1": 1500,
+          "h6": 1700,
+          "h24": 1700
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 1.21,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 12.04,
+          "h1": 34.44,
+          "h6": 47.56,
+          "h24": 47.56
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.00017,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": 21.43,
+          "h1": 41.67,
+          "h6": 54.55,
+          "h24": 54.55
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00141,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": 9.3,
+          "h1": 34.29,
+          "h6": 56.67,
+          "h24": 56.67
+        }
+      }
+    ],
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00055,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": 7.84,
+          "h1": 30.95,
+          "h6": 48.65,
+          "h24": 48.65
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 2.61,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": 14.47,
+          "h1": 41.08,
+          "h6": 68.39,
+          "h24": 68.39
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000101,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": 3.06,
+          "h1": 10.99,
+          "h6": 17.44,
+          "h24": 17.44
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.013,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": -19.25,
+          "h1": -3.7,
+          "h6": 9.24,
+          "h24": 9.24
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0046,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": 9.52,
+          "h1": 48.39,
+          "h6": 119.05,
+          "h24": 119.05
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0061,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": -15.28,
+          "h1": 454.55,
+          "h6": 1425,
+          "h24": 1425
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 1.36,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 12.4,
+          "h1": 40.21,
+          "h6": 65.85,
+          "h24": 65.85
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.00016,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": -5.88,
+          "h1": 6.67,
+          "h6": 45.45,
+          "h24": 45.45
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00152,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": 7.8,
+          "h1": 28.81,
+          "h6": 68.89,
+          "h24": 68.89
+        }
+      }
+    ],
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00058,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": 5.45,
+          "h1": 26.09,
+          "h6": 48.72,
+          "h24": 56.76
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 2.95,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": 13.03,
+          "h1": 46.04,
+          "h6": 79.88,
+          "h24": 90.32
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000099,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": -1.98,
+          "h1": 5.32,
+          "h6": 12.5,
+          "h24": 15.12
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.0108,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": -16.92,
+          "h1": -27.52,
+          "h6": -13.6,
+          "h24": -9.24
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0048,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": 4.35,
+          "h1": 29.73,
+          "h6": 108.7,
+          "h24": 128.57
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0044,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": -27.87,
+          "h1": 41.94,
+          "h6": 947.62,
+          "h24": 1000
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 1.44,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 5.88,
+          "h1": 33.33,
+          "h6": 67.44,
+          "h24": 75.61
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.00019,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": 18.75,
+          "h1": 35.71,
+          "h6": 46.15,
+          "h24": 72.73
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00147,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": -3.29,
+          "h1": 13.95,
+          "h6": 51.55,
+          "h24": 63.33
+        }
+      }
+    ],
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00057,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": -1.72,
+          "h1": 11.76,
+          "h6": 39.02,
+          "h24": 54.05
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 3.18,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": 7.8,
+          "h1": 39.47,
+          "h6": 82.76,
+          "h24": 105.16
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000103,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": 4.04,
+          "h1": 5.1,
+          "h6": 14.44,
+          "h24": 19.77
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.0095,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": -12.04,
+          "h1": -40.99,
+          "h6": -26.92,
+          "h24": -20.17
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0045,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": -6.25,
+          "h1": 7.14,
+          "h6": 73.08,
+          "h24": 114.29
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0033,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": -25,
+          "h1": -54.17,
+          "h6": 633.33,
+          "h24": 725
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 1.51,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 4.86,
+          "h1": 24.79,
+          "h6": 67.78,
+          "h24": 84.15
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.00018,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": -5.26,
+          "h1": 5.88,
+          "h6": 50,
+          "h24": 63.64
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00139,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": -5.44,
+          "h1": -1.42,
+          "h6": 32.38,
+          "h24": 54.44
+        }
+      }
+    ],
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00054,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": -5.26,
+          "h1": -1.82,
+          "h6": 28.57,
+          "h24": 45.95
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 3.05,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": -4.09,
+          "h1": 16.86,
+          "h6": 64.86,
+          "h24": 96.77
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000108,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": 4.85,
+          "h1": 6.93,
+          "h6": 18.68,
+          "h24": 25.58
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.0101,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": 6.32,
+          "h1": -22.31,
+          "h6": -25.19,
+          "h24": -15.13
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0041,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": -8.89,
+          "h1": -10.87,
+          "h6": 32.26,
+          "h24": 95.24
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0029,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": -12.12,
+          "h1": -52.46,
+          "h6": 163.64,
+          "h24": 625
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 1.58,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 4.64,
+          "h1": 16.18,
+          "h6": 62.89,
+          "h24": 92.68
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.00021,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": 16.67,
+          "h1": 31.25,
+          "h6": 40,
+          "h24": 90.91
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00131,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": -5.76,
+          "h1": -13.82,
+          "h6": 11.02,
+          "h24": 45.56
+        }
+      }
+    ],
+    [
+      {
+        "mint": "HDoG1Ru4Wn7xk8ZzQmVt5Yb3Ac6Df9Gh2Jk4Lm7Np1Qr",
+        "symbol": "HDOG",
+        "name": "Hacka Dog",
+        "priceUsd": 0.00051,
+        "liquidityUsd": 85000,
+        "volume24hUsd": 212000,
+        "ageHours": 62,
+        "change": {
+          "m5": -5.56,
+          "h1": -12.07,
+          "h6": 10.87,
+          "h24": 37.84
+        }
+      },
+      {
+        "mint": "WiFH4tRunner9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6As9D",
+        "symbol": "WIFHAT",
+        "name": "dog wif hat runner",
+        "priceUsd": 2.9,
+        "liquidityUsd": 450000,
+        "volume24hUsd": 1310000,
+        "ageHours": 340,
+        "change": {
+          "m5": -4.92,
+          "h1": -1.69,
+          "h6": 43.56,
+          "h24": 87.1
+        }
+      },
+      {
+        "mint": "BoNKy5Jr3Hg6Kl9Zx2Cv5Bn8Mk1Qw4Er7Ty0Ui3Op6A",
+        "symbol": "BONKY",
+        "name": "Bonk Junior",
+        "priceUsd": 0.0000112,
+        "liquidityUsd": 160000,
+        "volume24hUsd": 300000,
+        "ageHours": 900,
+        "change": {
+          "m5": 3.7,
+          "h1": 13.13,
+          "h6": 19.15,
+          "h24": 30.23
+        }
+      },
+      {
+        "mint": "ShiBx7Tr4p2Wq5Er8Ty1Ui4Op7As0Df3Gh6Jk9Lz2Xc",
+        "symbol": "SHIBX",
+        "name": "Shiba Xtreme",
+        "priceUsd": 0.0098,
+        "liquidityUsd": 96000,
+        "volume24hUsd": 240000,
+        "ageHours": 48,
+        "change": {
+          "m5": -2.97,
+          "h1": -9.26,
+          "h6": -34.23,
+          "h24": -17.65
+        }
+      },
+      {
+        "mint": "PuPPy2Th1n3Li4q5Ui6Dt7Yp8Oo9Ll0Aa1Bb2Cc3Dd4",
+        "symbol": "PUPPY",
+        "name": "Puppy Coin",
+        "priceUsd": 0.0039,
+        "liquidityUsd": 1240,
+        "volume24hUsd": 9800,
+        "ageHours": 120,
+        "change": {
+          "m5": -4.88,
+          "h1": -18.75,
+          "h6": 5.41,
+          "h24": 85.71
+        }
+      },
+      {
+        "mint": "VerT1c4lDog5Ee6Ff7Gg8Hh9Ii0Jj1Kk2Ll3Mm4Nn5O",
+        "symbol": "VERTDOG",
+        "name": "Vertical Dog",
+        "priceUsd": 0.0026,
+        "liquidityUsd": 78000,
+        "volume24hUsd": 410000,
+        "ageHours": 30,
+        "change": {
+          "m5": -10.34,
+          "h1": -40.91,
+          "h6": -16.13,
+          "h24": 550
+        }
+      },
+      {
+        "mint": "C4tNip9Pp0Qq1Rr2Ss3Tt4Uu5Vv6Ww7Xx8Yy9Zz0Ab1",
+        "symbol": "CATNIP",
+        "name": "Catnip Finance",
+        "priceUsd": 1.66,
+        "liquidityUsd": 520000,
+        "volume24hUsd": 1900000,
+        "ageHours": 700,
+        "change": {
+          "m5": 5.06,
+          "h1": 15.28,
+          "h6": 53.7,
+          "h24": 102.44
+        }
+      },
+      {
+        "mint": "W4shDog2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
+        "symbol": "WASHDOG",
+        "name": "Wash Dog",
+        "priceUsd": 0.0002,
+        "liquidityUsd": 22000,
+        "volume24hUsd": 3300000,
+        "ageHours": 14,
+        "change": {
+          "m5": -4.76,
+          "h1": 5.26,
+          "h6": 42.86,
+          "h24": 81.82
+        }
+      },
+      {
+        "mint": "NewPup8Ab9Cd0Ef1Gh2Ij3Kl4Mn5Op6Qr7St8Uv9Wx0",
+        "symbol": "NEWPUP",
+        "name": "Brand New Pup",
+        "priceUsd": 0.00126,
+        "liquidityUsd": 31000,
+        "volume24hUsd": 88000,
+        "ageHours": 0.2,
+        "change": {
+          "m5": -3.82,
+          "h1": -14.29,
+          "h6": -2.33,
+          "h24": 40
+        }
+      }
+    ]
+  ]
+}

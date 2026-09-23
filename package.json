@@ -1,0 +1,25 @@
+{
+  "name": "hdog-agent",
+  "version": "0.1.0",
+  "description": "An autonomous dog agent that hunts, scores and trades Solana dog-runner tokens. Devnet only.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "bin": {
+    "hdog": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js run",
+    "once": "node src/cli.js once",
+    "doctor": "node src/cli.js doctor",
+    "live": "node src/cli.js run --source=dexscreener",
+    "test": "node --test test/",
+    "coverage": "node --test --experimental-test-coverage test/",
+    "fixture": "node scripts/make_fixture.mjs"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.0"
+  }
+}
